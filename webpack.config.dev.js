@@ -3,6 +3,9 @@ var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var ROOT_PATH = path.resolve(__dirname);
+var SRC_PATH = path.resolve(ROOT_PATH, 'src');
+
 module.exports = {
   devtool: 'cheap-eval-source-map',
   entry: [
@@ -36,10 +39,13 @@ module.exports = {
             'less?sourceMap'
         )
       },
-
       {
         test: /\.js$/, 
-        loader: 'babel'
+        loader: 'babel',
+        include: SRC_PATH,
+        query: {
+          presets: ['es2015']
+        }
       },
       {
         test: /.(png|jpg)$/, 

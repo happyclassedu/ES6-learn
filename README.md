@@ -1,5 +1,5 @@
-# ES6学习笔记
-## 1. ES6类继承
+## ES6学习笔记
+### 1. ES6类继承
 ##### 一：创建类：
 ##### 比如我们可以像java一样，如下创建一个类；
 <pre>
@@ -25,7 +25,6 @@ function funA(name) {
 var test = new funA("kongzhi");
 test.init();  // kongzhi hello world
 </pre>
-
 ##### 我们也可以实现类的继承；而不需要像ES5中的原型继承那样的写法，我们可以使用extends关键字即可，像java一样；
 ##### 下面是函数B继承函数；代码如下：
 <pre>
@@ -39,13 +38,11 @@ class funB extends funA {
     console.log(this.name + " " + this.age + " hello world");
   }
 }
-
 var BB = new funB('tugenhua', '28');
 BB.init();   //tugenhua hello world
 BB.info();   //tugenhua 28 hello world
 </pre>
-
-## 2. ES6模块
+### 2. ES6模块
 ##### 在ES6标准中，javascript原生支持module了。将不同功能的代码分别写在不同文件中，
 各模块只需 导出(export) 公共接口部分，然后在需要使用的地方通过模块的 导入(import) 就可以了。
 ##### 2-1. 导出一组对象
@@ -59,11 +56,9 @@ class funA {
     console.log(this.name + " hello world");
   }
 }
-
 function run() {
   console.log("导出一个函数");
 }
-
 function cModule(){
   console.log("该模块为私有的，不需要导出");
 }
@@ -76,9 +71,7 @@ export {funA,run};
   console.log(run);
   // function run() { console.log("导出一个函数");}
 </pre>
-##### a.js 通过export导出了一组对象 {funA,run},那么在index.js导入一组对象通过
-import即可；
-
+##### a.js 通过export导出了一组对象 {funA,run},那么在index.js导入一组对象通过import即可；
 ##### 2-2. 内联导出
 ##### 比如a.js模块代码改为如下：
 <pre>
@@ -90,11 +83,9 @@ import即可；
       console.log(this.name + " hello world");
     }
   }
-
   export function run() {
     console.log("导出一个函数");
   }
-
   function cModule(){
     console.log("该模块为私有的，不需要导出");
   }
@@ -116,11 +107,9 @@ import即可；
       console.log(this.name + " hello world");
     }
   }
-
   function run() {
     console.log("导出一个函数");
   }
-
   function cModule(){
     console.log("该模块为私有的，不需要导出");
   }
@@ -133,8 +122,7 @@ import即可；
   console.log(obj.run); // function run() { console.log("导出一个函数");}
   console.log(obj.run()); // 导出一个函数
 </pre>
-
-## 3.箭头函数
+### 3.箭头函数
 ##### ES6中新增箭头操作符 => 来简化了函数的书写，操作符左边为输入参数，右边是进行操作及返回值，
 比如如下代码：
 <pre>
@@ -150,7 +138,7 @@ import即可；
     return console.log(item, i);
   });
 </pre>
-## 4. 字符串模板
+### 4. 字符串模板
 ##### ES6中允许使用反引号` 来创建字符串，此种方法创建的字符串里面可以包含由美元符号加花括号
 包裹的变量${vraible}。比如如下代码：
 <pre>
@@ -158,8 +146,7 @@ import即可；
   let num = Math.random();
   console.log(`your num is ${num}`); // your num is 0.22690744329927992
 </pre>
-
-## 5. 理解变量的解构赋值
+### 5. 理解变量的解构赋值
 ##### 若一个函数要返回多个值，常规的做法是返回一个对象，将每个值做为这个对象的属性返回。在ES6中，利用解构这一特性，可以直接返回一个数组，然后数组中的值会自动被解析到对应接收该值的变量中。
 比如如下代码：
 <pre>
@@ -187,7 +174,7 @@ import即可；
 </pre>
 ##### name='tom' 的含义是 如果没有给name传值的话，那么他们默认就是tom值，如果有传值的话，
 就是传的值；
-## 6. 理解Set数据结构
+### 6. 理解Set数据结构
 ##### ES6提供了新的数据结构Set，类似于数组，但是元素都是唯一的；Set本身是一个构造函数，
 用来生成
 ##### Set的数据结构的。Set结构的实列有以下属性。
@@ -205,7 +192,6 @@ import即可；
   var s = new Set();
   s.add(1).add(2).add(2);
   // 注意2被加入了两次
-
   console.log(s.size) // 2
   console.log(s.has(1)) // true
   console.log(s.has(2)) // true
